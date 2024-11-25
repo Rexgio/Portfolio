@@ -1,0 +1,40 @@
+
+<div class="w-full flex justify-center items-center">
+    <svg
+        id="mySvg"
+        width="50"
+        height="70"
+        viewBox="0 0 50 70"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style="cursor: pointer;"
+    >
+        <rect width="50" height="70" rx="25" fill="#C7C7C7"></rect>
+        <rect x="5" y="5" width="40" height="60" rx="20" fill="#0A0414"></rect>
+        <circle id="myCircle" cx="25" cy="45" r="10" fill="#D9D9D9"></circle>
+    </svg>
+</div>
+    <script>
+        const svg = document.getElementById("mySvg");
+        const circle = document.getElementById("myCircle");
+        
+       
+        let isMovedUp = false;
+
+        svg.addEventListener("click", () => {
+             window.location.href = '#frontend';
+            const currentCy = parseFloat(circle.getAttribute("cy"));
+            const newCy = isMovedUp ? 45 : 25;
+            
+            circle.animate([
+                { cy: currentCy },
+                { cy: newCy }
+            ], {
+                duration: 500,
+                fill: "forwards"
+            });
+
+            circle.setAttribute("cy", newCy);
+            isMovedUp = !isMovedUp;
+        });
+    </script>
